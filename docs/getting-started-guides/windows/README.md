@@ -35,7 +35,8 @@ The following diagram illustrates the Windows Server networking setup for Kubern
 
 1. Windows Server container host running Windows Server 2016 and Docker v1.12. Follow the setup instructions outlined by this blog post: https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_server
 2. DNS support for Windows recently got merged to docker master and is currently not supported in a stable docker release. To use DNS build docker from master or download the binary from [Docker master](https://master.dockerproject.org/)
-3. RRAS (Routing) Windows feature enabled
+3. Pull the `apprenda/pause` image from `https://hub.docker.com/r/apprenda/pause` 
+4. RRAS (Routing) Windows feature enabled
 
 #### Linux
 
@@ -128,6 +129,3 @@ Run the following in a PowerShell window with administrative privileges. Be awar
 2. Secrets currently do not work because of a bug in Windows Server Containers described [here](https://github.com/docker/docker/issues/28401)
 3. ConfigMaps have not been implemented yet.
 4. `kube-proxy` implementation uses `netsh portproxy` and as it only supports TCP, DNS currently works only if the client retries DNS query using TCP  
-
-## Notes
-1. `apprenda/pause` image can be pulled from `https://hub.docker.com/r/apprenda/pause` 
